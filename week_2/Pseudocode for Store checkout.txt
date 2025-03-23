@@ -1,0 +1,29 @@
+BEGIN
+   DISPLAY "Welcome to the store checkout"
+   Total_price = 0
+   REPEAT
+       DISPLAY "Scan items 
+       INPUT item_price
+       IF item_price = 0 then
+       total_price = total_price + item_price
+       ENDIF 
+   UNTIL item_price == 0
+   DISPLAY "total Price: ", total_price
+   DISPLAY "Payment Method (Cash/Card/Transfer)
+   INPUT payment_method
+   IF payment_method == "Card" THEN
+       DISPLAY "Insert or tap Card"
+       DISPLAY "Processing Payment ..."
+   ELSE
+       DISPLAY "Enter Cash Amount"
+       INPUT cash_given
+       IF cash_given >= total_price THEN
+           change = cash_given - total_price
+           DISPLAY "change: ", change 
+      ESLE
+           DISPLAY "Insufficient Cash, Try again."
+      ENDIF
+   ENDIF
+   DISPLAY "Transaction Complete. Thank you and See you soon."
+END 
+
